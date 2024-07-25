@@ -19,7 +19,9 @@ const resetGame = () => {
   gameModal.classList.remove("show");
   hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
   guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
-  keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
+  keyboardDiv
+    .querySelectorAll("button")
+    .forEach((btn) => (btn.disabled = false));
 };
 const getRandomWord = () => {
   const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
@@ -70,11 +72,22 @@ const initGame = (button, clickedLetter) => {
 
 for (let i = 1040; i < 1072; i++) {
   const button = document.createElement("button");
+
+  if (i == 1046) {
+    const buttonYo = document.createElement("button");
+    buttonYo.innerText = String.fromCharCode(1025);
+    keyboardDiv.appendChild(buttonYo);
+    buttonYo.addEventListener("click", (e) =>
+      initGame(e.target, String.fromCharCode(1025))
+    );
+  }
+
   button.innerText = String.fromCharCode(i);
   keyboardDiv.appendChild(button);
   button.addEventListener("click", (e) =>
     initGame(e.target, String.fromCharCode(i))
   );
 }
+
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
