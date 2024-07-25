@@ -5,9 +5,10 @@ const wordDisplay = document.querySelector(".word-display");
 const gameModal = document.querySelector(".game-modal");
 const playAgainBtn = document.querySelector(".play-again");
 let currentWord,
-  correctLetters = [];
+    correctLetters = [];
 wrongGuessCount = 0;
 const maxGuesses = 9;
+let usedWords = [];
 
 const resetGame = () => {
   correctLetters = [];
@@ -23,13 +24,25 @@ const resetGame = () => {
     .querySelectorAll("button")
     .forEach((btn) => (btn.disabled = false));
 };
+
 const getRandomWord = () => {
-  const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
-  currentWord = word;
-  console.log(word);
-  document.querySelector(".hint-text b").innerText = hint;
+  if (usedWords.length === wordList.length) {
+    alert("Все слова были использованы. Перезапускаем список.");
+    usedWords = [];
+  }
+
+  let wordObj;
+  do {
+    wordObj = wordList[Math.floor(Math.random() * wordList.length)];
+  } while (usedWords.includes(wordObj.word));
+
+  usedWords.push(wordObj.word);
+  currentWord = wordObj.word;
+  console.log(currentWord);
+  document.querySelector(".hint-text b").innerText = wordObj.hint;
   resetGame();
 };
+
 const gameOver = (isVictory) => {
   setTimeout(() => {
     const modalText = isVictory
@@ -50,7 +63,7 @@ const gameOver = (isVictory) => {
 
 const initGame = (button, clickedLetter) => {
   if (currentWord.includes(clickedLetter)) {
-    //Showing correct letters
+    // Showing correct letters
     [...currentWord].forEach((letter, index) => {
       if (letter === clickedLetter) {
         correctLetters.push(letter);
@@ -91,3 +104,23 @@ for (let i = 1040; i < 1072; i++) {
 
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
+
+// Добавляем обработчик для ввода с клавиатуры на ПК
+document.addEventListener("keydown", (e) => {
+  if (!/Mobi|Android/i.test(navigator.userAgent)) {
+    const letter = e.key.toUpperCase();
+    if (letter >= 'А' && letter <= 'Я' || letter === 'Ё') {
+      const button = [...keyboardDiv.querySelectorAll('button')].find(btn => btn.innerText === letter);
+      if (button && !button.disabled) {
+        initGame(button, letter);
+      }
+    }
+  }
+});
+
+// Добавляем обработчик для нажатия Enter, чтобы перезапустить игру
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && gameModal.classList.contains("show")) {
+    getRandomWord();
+  }
+});
