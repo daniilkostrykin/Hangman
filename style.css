@@ -22,6 +22,7 @@ body {
   gap: 70px;
   padding: 30px 40px;
   margin: 10px 15px;
+
 }
 .hangman-box img {
   max-width: 270px;
@@ -48,7 +49,7 @@ body {
   font-size: 1.4rem;
   margin-bottom: 60px;
 }
-.word-display.long-word{
+.word-display.long-word {
   height: 30px;
 }
 .word-display .letter {
