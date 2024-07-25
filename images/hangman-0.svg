@@ -1,9 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="298.232" height="291" viewBox="0 0 298.232 291">
-  <g id="Group_688" data-name="Group 688" transform="translate(-219 -183)">
-    <rect id="Rectangle_2974" data-name="Rectangle 2974" width="5" height="61.733" transform="translate(310.627 183.247) rotate(45)"/>
-    <rect id="Rectangle_2966" data-name="Rectangle 2966" width="5" height="298.232" rx="2.5" transform="translate(517.232 469) rotate(90)"/>
-    <rect id="Rectangle_2987" data-name="Rectangle 2987" width="5" height="289" rx="2.5" transform="translate(267 183)"/>
-    <rect id="Rectangle_2988" data-name="Rectangle 2988" width="187" height="5" rx="2.5" transform="translate(267 183)"/>
-    <rect id="Rectangle_2989" data-name="Rectangle 2989" width="5" height="49" rx="2.5" transform="translate(449 184)"/>
+<svg width="298.232" height="291" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="Group_688">
+   <rect x="91.627014" y="0.246994" transform="rotate(45 91.62701416015625,0.24699401855467915) " height="61.733" width="5" id="Rectangle_2974"/>
+   <rect x="298.231995" y="286" transform="rotate(90 298.23199462890625,286.00000000000006) " rx="2.5" height="298.232" width="5" id="Rectangle_2966"/>
+   <rect x="48" y="0" rx="2.5" height="289" width="5" id="Rectangle_2987"/>
+   <rect x="48" y="0" rx="2.5" height="5" width="187" id="Rectangle_2988"/>
+   <rect x="230" y="1" rx="2.5" height="49" width="5" id="Rectangle_2989"/>
   </g>
+  <rect id="svg_1" height="300.012274" width="302.117623" y="-13.741704" x="-2.732304" stroke-width="1.5" stroke="#000" fill="#fff"/>
+ </g>
 </svg>

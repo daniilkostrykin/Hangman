@@ -7,7 +7,7 @@ const playAgainBtn = document.querySelector(".play-again");
 let currentWord,
   correctLetters = [];
 wrongGuessCount = 0;
-const maxGuesses = 6;
+const maxGuesses = 9;
 
 const resetGame = () => {
   correctLetters = [];
