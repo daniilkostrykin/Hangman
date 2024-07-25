@@ -8,7 +8,7 @@
 body {
   display: flex;
   align-items: center;
-  padding: 0 10 px;
+  padding: 0 5px;
   justify-content: center;
   min-height: 100vh;
   background: #5e63ba;
@@ -21,7 +21,7 @@ body {
   align-items: flex-end;
   gap: 70px;
   padding: 30px 40px;
-  margin: 0 15px;
+  margin: 10px 15px;
 }
 .hangman-box img {
   max-width: 270px;
@@ -39,6 +39,17 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 37px;
+  flex-wrap: wrap; /* Добавляем это свойство */
+}
+.word-display.long-word .letter {
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  font-size: 1.4rem;
+  margin-bottom: 60px;
+}
+.word-display.long-word{
+  height: 30px;
 }
 .word-display .letter {
   width: 28px;
@@ -87,9 +98,9 @@ body {
   padding: 7px;
   width: calc(100% / 9 - 5px);
 }
-.keyboard button[disabled]{
-opacity: 0.6;
-pointer-events: none;
+.keyboard button[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
 }
 :where(.game-modal, .keyboard) button:hover {
   background: #8286c9;
@@ -110,7 +121,7 @@ pointer-events: none;
   transition: opacity 0.4s ease;
   padding: 0 10px;
 }
-.game-modal.show{
+.game-modal.show {
   opacity: 1;
   pointer-events: auto;
 }
@@ -154,5 +165,4 @@ pointer-events: none;
   .hangman-box h1 {
     display: none;
   }
-
 }

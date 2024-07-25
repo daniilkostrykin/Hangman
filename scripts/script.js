@@ -13,10 +13,16 @@ let usedWords = [];
 const resetGame = () => {
   correctLetters = [];
   wrongGuessCount = 0;
+  wordDisplay.classList.remove("long-word"); // Удаляем класс long-word
   wordDisplay.innerHTML = currentWord
     .split("")
     .map(() => '<li class="letter"></li>')
     .join("");
+
+  if (currentWord.length > 8) {
+    wordDisplay.classList.add("long-word"); // Добавляем класс long-word
+  }
+
   gameModal.classList.remove("show");
   hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
   guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
