@@ -44,7 +44,6 @@ const getRandomWord = () => {
 
   usedWords.push(wordObj.word);
   currentWord = wordObj.word;
-  console.log(currentWord);
   document.querySelector(".hint-text b").innerText = wordObj.hint;
   resetGame();
 };
